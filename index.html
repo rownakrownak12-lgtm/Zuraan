@@ -3,183 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zuraan | Luxury Fragrance Collection</title>
+    <title>Zuraan | Signature Scents</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap');
-        
-        :root {
-            --gold: #C5A059;
-            --dark: #0A0A0A;
-        }
-        
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: var(--dark); scroll-behavior: smooth; }
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .brand-font { font-family: 'Cinzel', serif; }
-        
-        .glass-nav { 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(10px); 
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .product-card {
-            transition: all 0.4s ease;
-            border: 1px solid #f3f4f6;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-            border-color: var(--gold);
-        }
-
-        .gold-btn {
-            background: var(--dark);
-            color: white;
-            transition: 0.3s;
-        }
-
-        .gold-btn:hover {
-            background: var(--gold);
-            transform: scale(1.02);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 3.5rem; }
-        }
+        .product-card { transition: 0.4s; border-radius: 2.5rem; overflow: hidden; border: 1px solid #f3f4f6; background: #fff; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.1); border-color: #C5A059; }
+        .gold-btn { background: #0A0A0A; color: white; transition: 0.3s; border-radius: 1.5rem; text-align: center; }
+        .gold-btn:hover { background: #C5A059; }
     </style>
 </head>
-<body>
+<body class="bg-white">
 
-    <nav class="glass-nav fixed w-full z-50 top-0">
+    <nav class="fixed w-full z-50 top-0 bg-white/90 backdrop-blur-md border-b">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <img src="./logo.png" alt="Zuraan Logo" class="h-10 w-10 rounded-full object-cover border border-gray-200" onerror="this.src='https://via.placeholder.com/40';">
-                <span class="brand-font text-2xl font-bold tracking-widest text-gray-900 uppercase">Zuraan</span>
+                <img src="./logo.png" class="h-10 w-10 rounded-full object-cover border" onerror="this.src='https://via.placeholder.com/40';">
+                <span class="brand-font text-2xl font-bold tracking-tighter uppercase">Zuraan</span>
             </div>
-            
-            <div class="hidden md:flex items-center space-x-6 text-[10px] font-bold uppercase tracking-[0.2em]">
-                <a href="#" class="hover:text-amber-600">Home</a>
-                <a href="#shop" class="hover:text-amber-600">Shop</a>
-                <div class="flex items-center space-x-4 border-l pl-6 border-gray-200">
-                    <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank" class="hover:text-blue-600 text-lg"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/zuraan_fragrance" target="_blank" class="hover:text-pink-600 text-lg"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@zuraan.perfume" target="_blank" class="hover:text-black text-lg"><i class="fab fa-tiktok"></i></a>
-                </div>
+            <div class="flex items-center space-x-5 text-xl text-gray-800">
+                <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank" class="hover:text-blue-600"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/zuraan_fragrance" target="_blank" class="hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@zuraan.perfume" target="_blank" class="hover:text-black"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
     </nav>
 
-    <header class="relative pt-48 pb-24 overflow-hidden bg-[#fdfcfb]">
-        <div class="container mx-auto px-6 text-center">
-            <img src="./logo.png" alt="Zuraan Symbol" class="w-24 mx-auto mb-8 rounded-full shadow-2xl opacity-90" onerror="this.src='https://via.placeholder.com/100';">
-            
-            <h1 class="brand-font hero-title text-6xl md:text-8xl font-bold mb-6 text-gray-900 tracking-tight leading-none">ZURAAN</h1>
-            <p class="brand-font text-xl md:text-2xl text-amber-700 tracking-[0.3em] mb-12 uppercase italic font-light">Elegance in every drop</p>
-            
-            <div class="flex flex-col items-center gap-8">
-                <a href="#shop" class="gold-btn px-16 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-2xl transition-all">Explore Collection</a>
-                
-                <div class="flex justify-center gap-6">
-                   <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank" class="bg-blue-600 text-white p-4 rounded-full hover:bg-blue-700 transition shadow-lg w-12 h-12 flex items-center justify-center"><i class="fab fa-facebook-f"></i></a>
-                   <a href="https://www.instagram.com/zuraan_fragrance" target="_blank" class="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 text-white p-4 rounded-full hover:opacity-90 transition shadow-lg w-12 h-12 flex items-center justify-center"><i class="fab fa-instagram"></i></a>
-                   <a href="https://www.tiktok.com/@zuraan.perfume" target="_blank" class="bg-black text-white p-4 rounded-full hover:bg-zinc-800 transition shadow-lg w-12 h-12 flex items-center justify-center"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-        </div>
+    <header class="pt-48 pb-20 text-center bg-[#fdfcfb]">
+        <img src="./logo.png" class="w-24 mx-auto mb-6 rounded-full shadow-2xl border-2 border-white" onerror="this.src='https://via.placeholder.com/100';">
+        <h1 class="brand-font text-6xl md:text-8xl font-bold mb-4 tracking-tighter">ZURAAN</h1>
+        <p class="brand-font text-amber-700 tracking-[0.3em] uppercase italic text-sm">Elegance in every drop</p>
     </header>
 
-    <section id="shop" class="py-24 container mx-auto px-6 bg-white">
-        <div class="flex flex-col items-center mb-20 text-center">
-            <h2 class="brand-font text-4xl font-bold uppercase tracking-widest text-gray-800">Our Shop</h2>
-            <div class="h-1 w-16 bg-amber-600 mt-4 rounded-full"></div>
-        </div>
-        
-        <div id="product-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
-            <div class="col-span-full text-center py-20">
-                <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-amber-600 mb-4"></div>
-                <p class="text-gray-400 uppercase tracking-[0.2em] text-sm">Authenticating Zuraan Inventory...</p>
-            </div>
+    <section id="shop" class="py-24 container mx-auto px-6">
+        <div id="product-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <p class="text-center col-span-full py-20 text-gray-400 animate-pulse uppercase tracking-widest">Loading Collection...</p>
         </div>
     </section>
 
-    <footer id="footer" class="bg-zinc-950 text-white py-24">
-        <div class="container mx-auto px-6 text-center">
-            <img src="./logo.png" alt="Zuraan Logo" class="h-20 w-20 rounded-full mx-auto mb-10 border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition duration-500">
-            <h2 class="brand-font text-5xl font-bold tracking-[0.3em] mb-10 uppercase">ZURAAN</h2>
-            
-            <div class="flex justify-center space-x-12 mb-16">
-                <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank" class="text-gray-400 hover:text-blue-500 transition text-3xl"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/zuraan_fragrance" target="_blank" class="text-gray-400 hover:text-pink-500 transition text-3xl"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@zuraan.perfume" target="_blank" class="text-gray-400 hover:text-white transition text-3xl"><i class="fab fa-tiktok"></i></a>
-                <a href="https://wa.me/8801XXXXXXXXX" target="_blank" class="text-gray-400 hover:text-green-500 transition text-3xl"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            
-            <div class="text-gray-500 text-[10px] uppercase tracking-[0.5em] border-t border-white/5 pt-12">
-                &copy; 2026 Zuraan Luxury Goods | Developed by Rownak
-            </div>
+    <footer class="bg-zinc-950 text-white py-20 text-center">
+        <img src="./logo.png" class="h-16 w-16 rounded-full mx-auto mb-6 grayscale invert" onerror="this.src='https://via.placeholder.com/64';">
+        <h2 class="brand-font text-3xl font-bold tracking-widest mb-10">ZURAAN</h2>
+        <div class="flex justify-center space-x-10 mb-12">
+            <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank" class="text-2xl hover:text-blue-500"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/zuraan_fragrance" target="_blank" class="text-2xl hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@zuraan.perfume" target="_blank" class="text-2xl hover:text-white"><i class="fab fa-tiktok"></i></a>
         </div>
+        <p class="text-[10px] text-gray-500 uppercase tracking-widest">© 2026 Zuraan Luxury | Developed by Rownak</p>
     </footer>
 
-    <a href="https://wa.me/8801XXXXXXXXX" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition z-50">
+    <a href="https://wa.me/8801876395185" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
     <script>
         // --- 🟢 ADMIN CONFIGURATION 🟢 ---
-        // 1. আপনার হোয়াটসঅ্যাপ নম্বর দিন (Country code সহ, যেমন: 8801700000000)
-        const WHATSAPP_NUMBER = "8801XXXXXXXXX"; 
-        
-        // 2. আপনার Google Sheet থেকে পাওয়া CSV লিঙ্কটি এখানে পেস্ট করুন
-        const SHEET_CSV_URL = "PASTE_YOUR_GOOGLE_SHEET_CSV_URL_HERE"; 
+        const MY_NUMBER = "8801876395185"; 
+        const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSPO-no79a_tO4Kxqg-BxwLtn4Hp8AopALY87ht3IVldUlM2OGGzZg5sMWhoD8E6WAoaHHJKptNmeMz/pub?output=csv";
 
-        async function fetchZuraanProducts() {
+        async function fetchProducts() {
             try {
                 const response = await fetch(SHEET_CSV_URL);
                 const data = await response.text();
-                // Rows split logic
+                // Splitting rows and ignoring the header
                 const rows = data.split('\n').slice(1).filter(r => r.trim() !== '');
                 
                 const list = document.getElementById('product-list');
                 list.innerHTML = ''; 
 
                 rows.forEach(row => {
-                    // CSV Column handling (id, name, price, delivery, imgUrl)
                     const col = row.split(',').map(c => c.trim().replace(/^"(.*)"$/, '$1'));
                     if(col.length >= 5) {
                         const [id, name, price, delivery, imgUrl] = col;
-                        const numericPrice = parseInt(price) || 0;
-                        const numericDelivery = parseInt(delivery) || 0;
-                        const total = numericPrice + numericDelivery;
+                        const total = (parseInt(price) || 0) + (parseInt(delivery) || 0);
                         
-                        // WhatsApp Message Formatting
+                        // WhatsApp Message
                         const msg = encodeURIComponent(
-                            `New Order Request - ZURAAN\\n` +
-                            `--------------------------\\n` +
-                            `Product: ${name}\\n` +
-                            `Price: ${numericPrice} TK\\n` +
-                            `Delivery: ${numericDelivery} TK\\n` +
-                            `Total Amount: ${total} TK`
+                            `Order Request - ZURAAN\n` +
+                            `--------------------------\n` +
+                            `Product: ${name}\n` +
+                            `Price: ${price} TK\n` +
+                            `Delivery: ${delivery} TK\n` +
+                            `Total: ${total} TK`
                         );
 
                         list.innerHTML += `
-                            <div class="product-card bg-white rounded-[3rem] overflow-hidden shadow-sm">
-                                <div class="relative overflow-hidden group h-[28rem]">
-                                    <img src="${imgUrl}" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" alt="${name}" onerror="this.src='https://via.placeholder.com/400x600';">
-                                    <div class="absolute inset-0 bg-black/5"></div>
-                                    <div class="absolute top-8 left-8 bg-white/90 backdrop-blur-md px-5 py-1 rounded-full text-[9px] font-black tracking-[0.2em] uppercase text-gray-800 shadow-xl">Original</div>
+                            <div class="product-card">
+                                <div class="h-80 overflow-hidden bg-gray-100">
+                                    <img src="${imgUrl}" class="w-full h-full object-cover transition duration-700 hover:scale-110" onerror="this.src='https://via.placeholder.com/400x500?text=Zuraan';">
                                 </div>
-                                <div class="p-10 text-center">
-                                    <h3 class="brand-font text-2xl font-bold mb-4 tracking-tight">${name}</h3>
-                                    <div class="flex flex-col items-center mb-8">
-                                        <p class="text-amber-700 font-black text-4xl mb-1">${numericPrice} TK</p>
-                                        <p class="text-[9px] text-gray-400 uppercase tracking-[0.3em] font-bold">+ ${numericDelivery} TK Delivery Charge</p>
-                                    </div>
-                                    <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${msg}" target="_blank" 
-                                       class="gold-btn w-full block py-5 rounded-[2rem] font-bold text-[10px] uppercase tracking-[0.4em] shadow-2xl">
-                                       Order Now
+                                <div class="p-8 text-center">
+                                    <h3 class="brand-font text-xl font-bold mb-2">${name}</h3>
+                                    <p class="text-amber-700 font-black text-2xl mb-1">${price} TK</p>
+                                    <p class="text-[9px] text-gray-400 uppercase tracking-widest mb-6">+ ${delivery} TK Delivery</p>
+                                    <a href="https://wa.me/${MY_NUMBER}?text=${msg}" target="_blank" 
+                                       class="gold-btn w-full block py-4 font-bold text-[10px] uppercase tracking-widest shadow-lg">
+                                       Purchase Now
                                     </a>
                                 </div>
                             </div>
@@ -187,18 +109,12 @@
                     }
                 });
             } catch (e) {
-                document.getElementById('product-list').innerHTML = `
-                    <div class="col-span-full py-10 bg-amber-50 rounded-3xl border border-dashed border-amber-200">
-                        <p class="text-amber-800 font-bold uppercase tracking-widest text-xs">Waiting for Admin to sync Google Sheet Link...</p>
-                    </div>
-                `;
+                console.error("Database Connection Error:", e);
+                document.getElementById('product-list').innerHTML = "<p class='col-span-full text-center'>Database syncing... please wait.</p>";
             }
         }
 
-        // Initialize fetching if link is provided
-        if(SHEET_CSV_URL.startsWith("http")) {
-            fetchZuraanProducts();
-        }
+        fetchProducts();
     </script>
 </body>
 </html>
