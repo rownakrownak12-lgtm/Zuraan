@@ -40,18 +40,13 @@
 
     <section id="shop" class="py-24 container mx-auto px-6">
         <div id="product-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <p class="text-center col-span-full py-20 text-gray-400 animate-pulse uppercase tracking-widest">Loading Collection...</p>
+            <p class="text-center col-span-full py-20 text-gray-400 animate-pulse uppercase tracking-widest">Syncing with Admin Panel...</p>
         </div>
     </section>
 
     <footer class="bg-zinc-950 text-white py-20 text-center">
         <img src="./logo.png" class="h-16 w-16 rounded-full mx-auto mb-6 grayscale invert" onerror="this.src='https://via.placeholder.com/64';">
         <h2 class="brand-font text-3xl font-bold tracking-widest mb-10">ZURAAN</h2>
-        <div class="flex justify-center space-x-10 mb-12">
-            <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank" class="text-2xl hover:text-blue-500"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/zuraan_fragrance" target="_blank" class="text-2xl hover:text-pink-500"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@zuraan.perfume" target="_blank" class="text-2xl hover:text-white"><i class="fab fa-tiktok"></i></a>
-        </div>
         <p class="text-[10px] text-gray-500 uppercase tracking-widest">© 2026 Zuraan Luxury | Developed by Rownak</p>
     </footer>
 
@@ -60,7 +55,7 @@
     </a>
 
     <script>
-        // --- 🟢 ADMIN CONFIGURATION 🟢 ---
+        // --- 🟢 CONFIGURATION 🟢 ---
         const MY_NUMBER = "8801876395185"; 
         const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSPO-no79a_tO4Kxqg-BxwLtn4Hp8AopALY87ht3IVldUlM2OGGzZg5sMWhoD8E6WAoaHHJKptNmeMz/pub?output=csv";
 
@@ -68,7 +63,6 @@
             try {
                 const response = await fetch(SHEET_CSV_URL);
                 const data = await response.text();
-                // Splitting rows and ignoring the header
                 const rows = data.split('\n').slice(1).filter(r => r.trim() !== '');
                 
                 const list = document.getElementById('product-list');
@@ -77,12 +71,22 @@
                 rows.forEach(row => {
                     const col = row.split(',').map(c => c.trim().replace(/^"(.*)"$/, '$1'));
                     if(col.length >= 5) {
-                        const [id, name, price, delivery, imgUrl] = col;
-                        const total = (parseInt(price) || 0) + (parseInt(delivery) || 0);
+                        let [id, name, price, delivery, imgUrl] = col;
                         
-                        // WhatsApp Message
+                        // --- 🛠 AUTO-FIX IMAGE LINK ---
+                        let finalImg = imgUrl;
+                        if(imgUrl.includes("ibb.co") && !imgUrl.includes("i.ibb.co")) {
+                            const parts = imgUrl.split('/');
+                            const imgId = parts[parts.length - 1];
+                            finalImg = `https://i.ibb.co/${imgId}/image.jpg`;
+                        } else if (!imgUrl.startsWith("http")) {
+                            finalImg = "https://via.placeholder.com/400x500?text=Zuraan";
+                        }
+                        // ------------------------------
+
+                        const total = (parseInt(price) || 0) + (parseInt(delivery) || 0);
                         const msg = encodeURIComponent(
-                            `Order Request - ZURAAN\n` +
+                            `New Order - ZURAAN\n` +
                             `--------------------------\n` +
                             `Product: ${name}\n` +
                             `Price: ${price} TK\n` +
@@ -92,8 +96,9 @@
 
                         list.innerHTML += `
                             <div class="product-card">
-                                <div class="h-80 overflow-hidden bg-gray-100">
-                                    <img src="${imgUrl}" class="w-full h-full object-cover transition duration-700 hover:scale-110" onerror="this.src='https://via.placeholder.com/400x500?text=Zuraan';">
+                                <div class="h-80 overflow-hidden bg-gray-50">
+                                    <img src="${finalImg}" class="w-full h-full object-cover transition duration-700 hover:scale-110" 
+                                         onerror="this.src='https://via.placeholder.com/400x500?text=Image+Error';">
                                 </div>
                                 <div class="p-8 text-center">
                                     <h3 class="brand-font text-xl font-bold mb-2">${name}</h3>
@@ -101,7 +106,7 @@
                                     <p class="text-[9px] text-gray-400 uppercase tracking-widest mb-6">+ ${delivery} TK Delivery</p>
                                     <a href="https://wa.me/${MY_NUMBER}?text=${msg}" target="_blank" 
                                        class="gold-btn w-full block py-4 font-bold text-[10px] uppercase tracking-widest shadow-lg">
-                                       Purchase Now
+                                       Order via WhatsApp
                                     </a>
                                 </div>
                             </div>
@@ -110,7 +115,7 @@
                 });
             } catch (e) {
                 console.error("Database Connection Error:", e);
-                document.getElementById('product-list').innerHTML = "<p class='col-span-full text-center'>Database syncing... please wait.</p>";
+                document.getElementById('product-list').innerHTML = "<p class='col-span-full text-center'>Refreshing database...</p>";
             }
         }
 
