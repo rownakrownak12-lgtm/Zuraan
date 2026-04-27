@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zuraan | Signature Collection</title>
+    <title>Zuraan | Authentic Fragrance</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #fff; color: #1a1a1a; }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; }
         .brand-font { font-family: 'Cinzel', serif; }
-        
-        .product-card { transition: 0.3s; border-radius: 1.2rem; overflow: hidden; border: 1px solid #eee; background: #fff; height: 100%; display: flex; flex-direction: column; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: #C5A059; }
-        
-        .gold-btn { background: #0A0A0A; color: white; border-radius: 0.6rem; transition: 0.3s; cursor: pointer; border: none; }
+        .product-card { transition: 0.3s; border-radius: 1rem; overflow: hidden; border: 1px solid #eee; background: #fff; height: 100%; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); border-color: #C5A059; }
+        .gold-btn { background: #0A0A0A; color: white; border-radius: 0.5rem; transition: 0.3s; border: none; cursor: pointer; }
         .gold-btn:hover { background: #C5A059; }
-        .details-btn { border: 1px solid #0A0A0A; color: #0A0A0A; border-radius: 0.6rem; transition: 0.3s; background: transparent; cursor: pointer; }
-        
-        #universalModal { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .details-btn { border: 1px solid #0A0A0A; color: #0A0A0A; border-radius: 0.5rem; transition: 0.3s; background: transparent; cursor: pointer; }
+        #universalModal { backdrop-filter: blur(15px); }
         .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 top-0 bg-white/90 backdrop-blur-md border-b">
+    <nav class="fixed w-full z-50 top-0 bg-white/90 border-b">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <img src="./logo.png" class="h-8 md:h-10 rounded-full" onerror="this.src='https://via.placeholder.com/40';">
-                <span class="brand-font text-xl md:text-2xl font-bold tracking-tighter">ZURAAN</span>
+                <span class="brand-font text-xl md:text-2xl font-bold">ZURAAN</span>
             </div>
             <div class="flex space-x-4 text-xl">
                 <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -37,59 +34,61 @@
         </div>
     </nav>
 
-    <header class="pt-28 pb-12 text-center bg-[#fcfaf8]">
-        <h1 class="brand-font text-5xl md:text-8xl font-bold uppercase tracking-tight">ZURAAN</h1>
-        <p class="brand-font text-amber-700 tracking-[0.2em] text-[10px] md:text-xs uppercase italic px-4 text-center">Luxury Performance Fragrance</p>
+    <header class="pt-32 pb-10 text-center bg-[#fdfcfb]">
+        <h1 class="brand-font text-5xl md:text-7xl font-bold uppercase">ZURAAN</h1>
+        <p class="brand-font text-amber-700 tracking-[0.2em] text-[10px] md:text-xs uppercase italic">Premium Performance Fragrance</p>
     </header>
 
     <main class="container mx-auto px-2 md:px-8 py-8">
         <div id="product-list" class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
-            <p class="text-center col-span-full py-20 text-gray-400">Syncing Prices & Collection...</p>
+            <p class="text-center col-span-full py-20 text-gray-400 animate-pulse">Syncing inventory...</p>
         </div>
     </main>
 
     <div id="universalModal" class="fixed inset-0 z-[100] hidden bg-black/70 flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-[1.5rem] p-6 md:p-8 shadow-2xl relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 text-2xl">&times;</button>
-            <h2 id="modalTitle" class="brand-font text-xl mb-4 border-b pb-2 tracking-tight"></h2>
+        <div class="bg-white w-full max-w-sm rounded-[1.5rem] p-6 md:p-8 shadow-2xl relative animate-in zoom-in duration-200">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 text-3xl">&times;</button>
+            <h2 id="modalTitle" class="brand-font text-xl mb-4 border-b pb-2"></h2>
             <div id="modalContent" class="text-gray-700 text-sm leading-relaxed mb-6"></div>
             <button id="modalActionBtn" class="gold-btn w-full py-4 font-bold uppercase tracking-widest text-xs"></button>
         </div>
     </div>
 
-    <footer class="bg-black text-white py-12 text-center mt-10">
-        <p class="text-[9px] text-gray-500 uppercase tracking-widest italic">© 2026 Zuraan Luxury Fragrance | Bangladesh</p>
+    <footer class="bg-black text-white py-10 text-center mt-10">
+        <p class="text-[9px] text-gray-500 uppercase tracking-widest italic">© 2026 Zuraan Luxury Fragrance | Authentic & Bold</p>
     </footer>
 
     <script>
         const MY_NUMBER = "8801876395185"; 
         const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSPO-no79a_tO4Kxqg-BxwLtn4Hp8AopALY87ht3IVldUlM2OGGzZg5sMWhoD8E6WAoaHHJKptNmeMz/pub?output=csv";
 
-        let currentOrder = null;
+        let orderDetails = null;
 
-        async function fetchInventory() {
+        async function fetchProducts() {
             try {
-                // 'cb=' + Date.now() ব্রাউজারকে বাধ্য করবে সবসময় নতুন প্রাইস লোড করতে
-                const response = await fetch(`${SHEET_CSV_URL}&cb=${Date.now()}`);
-                const csvText = await response.text();
+                // Price Update Fix: Adding a unique timestamp to bypass cache
+                const response = await fetch(`${SHEET_CSV_URL}&t=${new Date().getTime()}`);
+                const data = await response.text();
                 
-                const rows = csvText.split(/\r?\n/).map(row => {
-                    return row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g)?.map(val => val.replace(/^"|"$/g, '').trim());
-                }).filter(r => r && r.length >= 5);
+                // Better CSV Parsing
+                const rows = data.split(/\r?\n/).map(row => {
+                    const matches = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+                    return matches ? matches.map(val => val.replace(/^"|"$/g, '').trim()) : null;
+                }).filter(r => r && r.length >= 4);
 
                 const headers = rows[0].map(h => h.toLowerCase().trim());
-                const data = rows.slice(1);
+                const items = rows.slice(1);
                 
                 const list = document.getElementById('product-list');
                 list.innerHTML = ''; 
 
-                data.forEach(col => {
-                    const getCol = (name) => col[headers.indexOf(name)] || "";
-                    const name = getCol('name');
-                    const price = getCol('price');
-                    const delivery = getCol('delivery');
-                    const imgUrl = getCol('imgurl');
-                    const details = getCol('details');
+                items.forEach(item => {
+                    const getVal = (name) => item[headers.indexOf(name)] || "";
+                    const name = getVal('name');
+                    const price = getVal('price');
+                    const delivery = getVal('delivery');
+                    const imgUrl = getVal('imgurl');
+                    const details = getVal('details');
 
                     let finalImg = imgUrl;
                     if(imgUrl.includes("ibb.co") && !imgUrl.includes("i.ibb.co")) {
@@ -100,56 +99,57 @@
                         list.innerHTML += `
                             <div class="product-card">
                                 <div class="h-44 md:h-72 overflow-hidden bg-gray-50">
-                                    <img src="${finalImg}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400x500?text=Zuraan';">
+                                    <img src="${finalImg}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400?text=Zuraan';">
                                 </div>
                                 <div class="p-3 md:p-6 flex-grow flex flex-col justify-between">
-                                    <div class="text-center">
-                                        <h3 class="brand-font text-[12px] md:text-lg font-bold mb-1 uppercase line-clamp-1">${name}</h3>
-                                        <p class="text-amber-700 font-bold text-sm md:text-xl mb-4">${price} TK</p>
+                                    <div class="text-center mb-3">
+                                        <h3 class="brand-font text-[12px] md:text-lg font-bold uppercase line-clamp-1">${name}</h3>
+                                        <p class="text-amber-700 font-bold text-sm md:text-xl">${price} TK</p>
                                     </div>
                                     <div class="grid grid-cols-2 gap-2">
-                                        <button onclick="showDetails(\`${name}\`, \`${details}\`)" class="details-btn py-2 text-[8px] md:text-[10px] font-bold uppercase">Details</button>
-                                        <button onclick="openOrder(\`${name}\`, ${price}, ${delivery})" class="gold-btn py-2 text-[8px] md:text-[10px] font-bold uppercase">Buy</button>
+                                        <button onclick="openDetails(\`${name}\`, \`${details}\`)" class="details-btn py-2 text-[8px] md:text-[10px] font-bold">DETAILS</button>
+                                        <button onclick="openOrder(\`${name}\`, ${price}, ${delivery})" class="gold-btn py-2 text-[8px] md:text-[10px] font-bold">BUY NOW</button>
                                     </div>
                                 </div>
                             </div>
                         `;
                     }
                 });
-            } catch (error) {
-                document.getElementById('product-list').innerHTML = "<p class='col-span-full text-center py-20'>Syncing failed. Refresh page.</p>";
+            } catch (err) {
+                console.error(err);
+                document.getElementById('product-list').innerHTML = "<p class='col-span-full text-center'>Connection busy. Refreshing...</p>";
             }
         }
 
-        function showDetails(name, info) {
+        function openDetails(name, info) {
             document.getElementById('modalTitle').innerText = name;
-            document.getElementById('modalContent').innerText = info || "Premium Fragrance by Zuraan.";
+            document.getElementById('modalContent').innerText = info || "A premium scent selected by Zuraan.";
             const btn = document.getElementById('modalActionBtn');
-            btn.innerText = "Close";
+            btn.innerText = "Back to Collection";
             btn.onclick = closeModal;
             document.getElementById('universalModal').classList.remove('hidden');
         }
 
         function openOrder(name, price, delivery) {
             const total = parseInt(price) + parseInt(delivery);
-            currentOrder = { name, total };
+            orderDetails = { name, total };
             document.getElementById('modalTitle').innerText = "Order Summary";
             document.getElementById('modalContent').innerHTML = `
                 <div class="space-y-2 py-4 border-t border-gray-100">
-                    <div class="flex justify-between text-xs"><span>Price:</span><span>${price} TK</span></div>
+                    <div class="flex justify-between text-xs"><span>Product:</span><span>${name}</span></div>
                     <div class="flex justify-between text-xs"><span>Delivery:</span><span class="text-red-500">+ ${delivery} TK</span></div>
-                    <div class="flex justify-between font-black text-xl border-t pt-4 text-amber-700"><span>TOTAL:</span><span>${total} TK</span></div>
+                    <div class="flex justify-between font-bold text-xl border-t pt-4 text-amber-700 italic"><span>Total:</span><span>${total} TK</span></div>
                 </div>
             `;
             const btn = document.getElementById('modalActionBtn');
-            btn.innerText = "Confirm Order";
-            btn.onclick = () => window.open(`https://wa.me/${MY_NUMBER}?text=${encodeURIComponent('I want to order: ' + name + ' | Total: ' + total + ' TK')}`, '_blank');
+            btn.innerText = "Confirm on WhatsApp";
+            btn.onclick = () => window.open(`https://wa.me/${MY_NUMBER}?text=${encodeURIComponent('I want to order: ' + name + '\nTotal: ' + total + ' TK')}`, '_blank');
             document.getElementById('universalModal').classList.remove('hidden');
         }
 
         function closeModal() { document.getElementById('universalModal').classList.add('hidden'); }
 
-        window.onload = fetchInventory;
+        window.onload = fetchProducts;
     </script>
 </body>
 </html>
