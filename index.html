@@ -3,93 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zuraan | Signature Scents</title>
+    <title>Zuraan | Luxury Fragrance</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap');
-        body { font-family: 'Inter', sans-serif; background: #fff; margin: 0; scroll-behavior: smooth; }
-        .brand-font { font-family: 'Cinzel', serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600;800&display=swap');
         
-        /* Product Card: Height auto রাখা হয়েছে যেন নাম বড় হলে জায়গা নেয় */
-        .product-card { 
-            transition: 0.3s; 
-            border-radius: 1.2rem; 
-            border: 1px solid #eee; 
-            background: #fff; 
-            display: flex; 
-            flex-direction: column; 
-            height: 100%; 
-            overflow: hidden; 
-        }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        body { font-family: 'Inter', sans-serif; background: #fff; margin: 0; color: #1a1a1a; }
+        .brand-font { font-family: 'Cinzel', serif; }
 
-        /* নাম পুরোপুরি দেখানোর মাস্টার ফিক্স */
-        .name-container { padding: 10px 5px; flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        #product-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px;
+            padding: 10px;
+        }
+        @media (min-width: 1024px) {
+            #product-list { grid-template-columns: repeat(4, 1fr); gap: 30px; padding: 0; }
+        }
+
+        .product-card { 
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+
+        /* নামের জন্য স্পেশাল ফিক্স - যেন কাটা না যায় */
+        .info-area {
+            padding: 15px 12px;
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
         .full-name { 
             display: block !important;
-            white-space: normal !important; 
-            word-wrap: break-word;
-            line-height: 1.2;
-            text-align: center;
-            text-transform: uppercase;
+            font-family: 'Cinzel', serif; /* লাক্সারি ফন্ট */
             font-weight: 800;
-            color: #111;
-            font-size: 11px;
-            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 14px; /* সাইজ বাড়ানো হয়েছে */
+            line-height: 1.2;
+            color: #000;
+            margin-bottom: 8px;
+            min-height: 35px; /* ফিক্সড নূন্যতম জায়গা */
+            word-wrap: break-word;
         }
-        @media (min-width: 768px) { .full-name { font-size: 16px; } }
+        @media (min-width: 768px) { .full-name { font-size: 18px; min-height: 45px; } }
 
-        /* কম্বো ব্যাজ */
-        .combo-badge { background: #C5A059; color: white; font-size: 8px; padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; text-transform: uppercase; }
+        .price-text {
+            color: #C5A059;
+            font-weight: 800;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        @media (min-width: 768px) { .price-text { font-size: 20px; } }
 
-        /* Buttons */
-        .gold-btn { background: #0A0A0A; color: white; border-radius: 0.6rem; cursor: pointer; transition: 0.3s; font-weight: bold; border: none; }
-        .gold-btn:hover { background: #C5A059; }
-        .details-btn { border: 1px solid #0A0A0A; color: #0A0A0A; border-radius: 0.6rem; background: transparent; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        /* বাটন ডিজাইন */
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: auto;
+        }
+        .details-btn { border: 1.5px solid #000; color: #000; border-radius: 10px; font-weight: 600; padding: 10px 0; font-size: 10px; transition: 0.2s; }
+        .buy-btn { background: #000; color: #fff; border-radius: 10px; font-weight: 600; padding: 10px 0; font-size: 10px; transition: 0.2s; }
+        .buy-btn:hover { background: #C5A059; }
 
-        /* Modal Styles */
-        #universalModal { backdrop-filter: blur(10px); background: rgba(0,0,0,0.8); }
-        .address-box { width: 100%; border: 1px solid #ddd; rounded: 0.8rem; padding: 10px; font-size: 14px; margin-top: 10px; resize: none; }
-        footer { border-top: 5px solid #000; background: #000; color: #fff; }
+        /* লোগো ফিক্স */
+        .nav-logo { height: 45px; width: auto; object-fit: contain; }
+        .footer-logo { height: 60px; width: auto; margin: 0 auto 15px; filter: brightness(1); } /* Invert সরানো হয়েছে */
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 top-0 bg-white/90 border-b py-3 backdrop-blur-md">
+    <nav class="fixed w-full z-50 top-0 bg-white/80 border-b py-3 backdrop-blur-lg">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <span class="brand-font text-xl md:text-2xl font-bold">ZURAAN</span>
-            <div class="flex space-x-4 text-xl">
+            <img src="logo.png" alt="Zuraan" class="nav-logo">
+            <div class="flex space-x-5 text-xl">
                 <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank" class="text-black"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/zuraan_fragrance" target="_blank" class="text-black"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </nav>
 
-    <header class="pt-32 pb-10 text-center bg-[#fdfcfb]">
-        <h1 class="brand-font text-5xl md:text-7xl font-bold uppercase tracking-tight">ZURAAN</h1>
-        <p class="brand-font text-amber-700 tracking-[0.2em] text-[10px] md:text-xs uppercase italic px-4">Premium Fragrance Collection</p>
+    <header class="pt-32 pb-12 text-center">
+        <img src="logo.png" alt="Zuraan" class="mx-auto h-28 md:h-40 mb-4">
+        <div class="h-[1px] w-20 bg-amber-600 mx-auto mb-4"></div>
+        <p class="brand-font text-amber-800 tracking-[0.3em] text-[10px] md:text-xs uppercase font-semibold">The Essence of Mystery</p>
     </header>
 
-    <main class="container mx-auto px-2 md:px-8 py-8 min-h-screen">
-        <div id="product-list" class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
-            <p class="text-center col-span-full py-20 text-gray-400 animate-pulse">Syncing Zuraan Inventory...</p>
-        </div>
+    <main class="container mx-auto px-2 md:px-10 mb-20">
+        <div id="product-list">
+            </div>
     </main>
 
-    <div id="universalModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-[1.5rem] p-6 shadow-2xl relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 text-3xl">&times;</button>
-            <h2 id="modalTitle" class="brand-font text-xl mb-2 border-b pb-2"></h2>
-            <div id="modalContent" class="text-gray-700 text-sm leading-relaxed"></div>
-            <button id="modalActionBtn" class="gold-btn w-full py-4 uppercase text-xs tracking-widest font-bold mt-4"></button>
-        </div>
-    </div>
-
-    <footer class="py-12 text-center mt-10">
-        <h2 class="brand-font text-3xl mb-4">ZURAAN</h2>
-        <p class="text-[10px] text-gray-400 uppercase tracking-widest italic">Authentic Luxury Fragrance | Bangladesh</p>
-        <p class="text-[9px] text-gray-600 mt-4 uppercase">© 2026 Zuraan Signature. All Rights Reserved.</p>
+    <footer class="py-16 text-center bg-[#0a0a0a] text-white">
+        <img src="logo.png" alt="Zuraan" class="footer-logo">
+        <p class="brand-font text-xl tracking-widest mb-4">ZURAAN</p>
+        <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em]">© 2026 Zuraan Signature. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -114,27 +133,20 @@
                     const get = (name) => item[headers.indexOf(name)] || "";
                     const n = get('name');
                     const p = get('price');
-                    const d = get('delivery') || "0";
                     const img = get('imgurl');
-                    const det = get('details').replace(/'/g, "\\'");
                     
-                    const isCombo = n.toLowerCase().includes("combo");
-
                     if(n) {
                         list.innerHTML += `
                             <div class="product-card">
-                                <div class="h-44 md:h-80 overflow-hidden bg-gray-50">
-                                    <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400';">
+                                <div class="aspect-[4/5] overflow-hidden">
+                                    <img src="${img}" class="w-full h-full object-cover">
                                 </div>
-                                <div class="p-3 flex-grow flex flex-col items-center">
-                                    <div class="name-container">
-                                        <h3 class="brand-font full-name">${n}</h3>
-                                        ${isCombo ? '<span class="combo-badge">Combo Pack</span>' : ''}
-                                    </div>
-                                    <p class="text-amber-700 font-bold text-sm md:text-xl mb-4">${p} TK</p>
-                                    <div class="grid grid-cols-2 gap-2 mt-auto w-full">
-                                        <button onclick="openDetails('${n}', '${det}')" class="details-btn py-2 text-[8px] md:text-[11px]">DETAILS</button>
-                                        <button onclick="openOrder('${n}', '${p}', '${d}')" class="gold-btn py-2 text-[8px] md:text-[11px]">BUY NOW</button>
+                                <div class="info-area">
+                                    <h3 class="full-name">${n}</h3>
+                                    <p class="price-text">${p} TK</p>
+                                    <div class="btn-group">
+                                        <button class="details-btn uppercase">Details</button>
+                                        <button class="buy-btn uppercase">Buy Now</button>
                                     </div>
                                 </div>
                             </div>
@@ -143,51 +155,6 @@
                 });
             } catch (err) { console.error(err); }
         }
-
-        function openDetails(name, info) {
-            document.getElementById('modalTitle').innerText = name;
-            document.getElementById('modalContent').innerText = info || "Premium Fragrance by Zuraan Signature.";
-            const btn = document.getElementById('modalActionBtn');
-            btn.innerText = "Back to Store";
-            btn.onclick = closeModal;
-            document.getElementById('universalModal').classList.remove('hidden');
-        }
-
-        function openOrder(name, price, delivery) {
-            const p = parseInt(price) || 0;
-            const d = parseInt(delivery) || 0;
-            const total = p + d;
-
-            document.getElementById('modalTitle').innerText = "Confirm Order";
-            document.getElementById('modalContent').innerHTML = `
-                <div class="space-y-2 py-3 border-t border-b border-gray-50 mt-2">
-                    <div class="flex justify-between text-sm"><span>Item:</span> <span class="font-bold text-right">${name}</span></div>
-                    <div class="flex justify-between text-sm"><span>Subtotal:</span> <span>${p} TK</span></div>
-                    <div class="flex justify-between text-sm text-red-500"><span>Delivery:</span> <span>+ ${d} TK</span></div>
-                    <div class="flex justify-between pt-3 border-t mt-2">
-                        <span class="font-bold text-lg">Total Cost:</span>
-                        <span class="font-black text-2xl text-amber-700">${total} TK</span>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1">Shipping Address:</label>
-                    <textarea id="customerAddress" class="address-box focus:outline-none focus:border-amber-500" rows="3" placeholder="আপনার নাম, মোবাইল নাম্বার এবং পূর্ণ ঠিকানা লিখুন..."></textarea>
-                </div>
-            `;
-            
-            const btn = document.getElementById('modalActionBtn');
-            btn.innerText = "Order via WhatsApp";
-            btn.onclick = () => {
-                const address = document.getElementById('customerAddress').value;
-                if(!address) { alert("দয়া করে ঠিকানা লিখুন!"); return; }
-
-                const msg = `আসসালামু আলাইকুম Zuraan!\n\n🛍️ *নতুন অর্ডার:*\nপ্রোডাক্ট: ${name}\nমোট: ${total} TK\n\n📍 *ঠিকানা:*\n${address}`;
-                window.open(`https://wa.me/${MY_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
-            };
-            document.getElementById('universalModal').classList.remove('hidden');
-        }
-
-        function closeModal() { document.getElementById('universalModal').classList.add('hidden'); }
         window.onload = fetchProducts;
     </script>
 </body>
