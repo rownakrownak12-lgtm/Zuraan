@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,155 +8,169 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600;800&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; background: #fff; margin: 0; color: #1a1a1a; }
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .brand-font { font-family: 'Cinzel', serif; }
-
-        #product-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 15px;
-            padding: 10px;
-        }
-        @media (min-width: 1024px) {
-            #product-list { grid-template-columns: repeat(4, 1fr); gap: 30px; padding: 0; }
-        }
-
-        .product-card { 
-            display: flex;
-            flex-direction: column;
-            background: #fff;
-            border: 1px solid #f0f0f0;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-
-        /* নামের জন্য স্পেশাল ফিক্স - যেন কাটা না যায় */
-        .info-area {
-            padding: 15px 12px;
-            flex-grow: 1; 
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .full-name { 
-            display: block !important;
-            font-family: 'Cinzel', serif; /* লাক্সারি ফন্ট */
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 14px; /* সাইজ বাড়ানো হয়েছে */
-            line-height: 1.2;
-            color: #000;
-            margin-bottom: 8px;
-            min-height: 35px; /* ফিক্সড নূন্যতম জায়গা */
-            word-wrap: break-word;
-        }
-        @media (min-width: 768px) { .full-name { font-size: 18px; min-height: 45px; } }
-
-        .price-text {
-            color: #C5A059;
-            font-weight: 800;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-        @media (min-width: 768px) { .price-text { font-size: 20px; } }
-
-        /* বাটন ডিজাইন */
-        .btn-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-top: auto;
-        }
-        .details-btn { border: 1.5px solid #000; color: #000; border-radius: 10px; font-weight: 600; padding: 10px 0; font-size: 10px; transition: 0.2s; }
-        .buy-btn { background: #000; color: #fff; border-radius: 10px; font-weight: 600; padding: 10px 0; font-size: 10px; transition: 0.2s; }
-        .buy-btn:hover { background: #C5A059; }
-
-        /* লোগো ফিক্স */
-        .nav-logo { height: 45px; width: auto; object-fit: contain; }
-        .footer-logo { height: 60px; width: auto; margin: 0 auto 15px; filter: brightness(1); } /* Invert সরানো হয়েছে */
+        .product-card { transition: 0.4s; border-radius: 2.5rem; overflow: hidden; border: 1px solid #f3f4f6; background: #fff; position: relative; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.1); border-color: #C5A059; }
+        .gold-btn { background: #0A0A0A; color: white; transition: 0.3s; border-radius: 1.2rem; text-align: center; cursor: pointer; }
+        .gold-btn:hover { background: #C5A059; }
+        .details-btn { border: 1px solid #0A0A0A; color: #0A0A0A; transition: 0.3s; border-radius: 1.2rem; text-align: center; cursor: pointer; }
+        .details-btn:hover { background: #f3f4f6; }
     </style>
 </head>
-<body>
+<body class="bg-white">
 
-    <nav class="fixed w-full z-50 top-0 bg-white/80 border-b py-3 backdrop-blur-lg">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <img src="logo.png" alt="Zuraan" class="nav-logo">
-            <div class="flex space-x-5 text-xl">
-                <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank" class="text-black"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/zuraan_fragrance" target="_blank" class="text-black"><i class="fab fa-instagram"></i></a>
+    <nav class="fixed w-full z-50 top-0 bg-white/90 backdrop-blur-md border-b">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="./logo.png" class="h-10 w-10 rounded-full border" onerror="this.src='https://via.placeholder.com/40';">
+                <span class="brand-font text-2xl font-bold tracking-tighter uppercase">ZURAAN</span>
+            </div>
+            <div class="flex space-x-5 text-xl text-gray-800">
+                <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/zuraan_fragrance" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@zuraan.perfume" target="_blank"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
     </nav>
 
-    <header class="pt-32 pb-12 text-center">
-        <img src="logo.png" alt="Zuraan" class="mx-auto h-28 md:h-40 mb-4">
-        <div class="h-[1px] w-20 bg-amber-600 mx-auto mb-4"></div>
-        <p class="brand-font text-amber-800 tracking-[0.3em] text-[10px] md:text-xs uppercase font-semibold">The Essence of Mystery</p>
+    <header class="pt-40 pb-16 text-center bg-[#fdfcfb]">
+        <img src="./logo.png" class="w-24 mx-auto mb-6 rounded-full shadow-2xl border-2 border-white" onerror="this.src='https://via.placeholder.com/100';">
+        <h1 class="brand-font text-6xl md:text-8xl font-bold mb-4 tracking-tighter">ZURAAN</h1>
+        <p class="brand-font text-amber-700 tracking-[0.3em] uppercase italic text-sm text-center px-4">Luxury Performance Fragrance</p>
     </header>
 
-    <main class="container mx-auto px-2 md:px-10 mb-20">
-        <div id="product-list">
-            </div>
-    </main>
+    <section class="py-20 container mx-auto px-6">
+        <div id="product-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <p class="text-center col-span-full py-20 text-gray-400 animate-pulse">Syncing Inventory...</p>
+        </div>
+    </section>
 
-    <footer class="py-16 text-center bg-[#0a0a0a] text-white">
-        <img src="logo.png" alt="Zuraan" class="footer-logo">
-        <p class="brand-font text-xl tracking-widest mb-4">ZURAAN</p>
-        <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em]">© 2026 Zuraan Signature. All Rights Reserved.</p>
+    <div id="orderModal" class="fixed inset-0 z-[100] hidden bg-black/75 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-[2.5rem] p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black text-3xl">&times;</button>
+            <h2 id="modalTitle" class="brand-font text-2xl mb-4 border-b pb-4 tracking-tight">Product Details</h2>
+            
+            <div id="modalContent" class="space-y-4 text-gray-700">
+                </div>
+            
+            <div id="modalActions" class="mt-8 space-y-3">
+                <button id="confirmOrderBtn" class="gold-btn w-full py-5 font-bold uppercase tracking-[0.2em] text-xs shadow-xl">Confirm & Order Now</button>
+                <button onclick="closeModal()" class="w-full py-3 text-gray-400 text-xs uppercase tracking-widest hover:text-black transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-zinc-950 text-white py-16 text-center">
+        <h2 class="brand-font text-3xl font-bold tracking-widest mb-8 text-center px-4">ZURAAN</h2>
+        <p class="text-[10px] text-zinc-600 uppercase tracking-widest">© 2026 Zuraan Luxury Fragrances</p>
     </footer>
 
     <script>
         const MY_NUMBER = "8801876395185"; 
         const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSPO-no79a_tO4Kxqg-BxwLtn4Hp8AopALY87ht3IVldUlM2OGGzZg5sMWhoD8E6WAoaHHJKptNmeMz/pub?output=csv";
 
+        let currentOrderData = null;
+
         async function fetchProducts() {
             try {
-                const response = await fetch(`${SHEET_CSV_URL}&cb=${Date.now()}`);
+                const response = await fetch(SHEET_CSV_URL);
                 const data = await response.text();
-                const rows = data.split(/\r?\n/).map(row => {
-                    const matches = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
-                    return matches ? matches.map(val => val.replace(/^"|"$/g, '').trim()) : null;
-                }).filter(r => r && r.length >= 4);
-
-                const headers = rows[0].map(h => h.toLowerCase().trim());
-                const items = rows.slice(1);
+                const rows = data.split('\n').slice(1).filter(r => r.trim() !== '');
                 const list = document.getElementById('product-list');
                 list.innerHTML = ''; 
 
-                items.forEach(item => {
-                    const get = (name) => item[headers.indexOf(name)] || "";
-                    const n = get('name');
-                    const p = get('price');
-                    const img = get('imgurl');
-                    
-                    if(n) {
+                rows.forEach(row => {
+                    const col = row.split(',').map(c => c.trim().replace(/^"(.*)"$/, '$1'));
+                    if(col.length >= 6) { // Now expecting 6 columns including 'details'
+                        let [id, name, price, delivery, imgUrl, details] = col;
+                        
+                        let finalImg = imgUrl;
+                        if(imgUrl.includes("ibb.co") && !imgUrl.includes("i.ibb.co")) {
+                            const imgId = imgUrl.split('/').pop();
+                            finalImg = `https://i.ibb.co/${imgId}/image.jpg`;
+                        }
+
                         list.innerHTML += `
                             <div class="product-card">
-                                <div class="aspect-[4/5] overflow-hidden">
-                                    <img src="${img}" class="w-full h-full object-cover">
+                                <div class="h-80 overflow-hidden bg-gray-50">
+                                    <img src="${finalImg}" class="w-full h-full object-cover transition duration-700 hover:scale-110" onerror="this.src='https://via.placeholder.com/400x500';">
                                 </div>
-                                <div class="info-area">
-                                    <h3 class="full-name">${n}</h3>
-                                    <p class="price-text">${p} TK</p>
-                                    <div class="btn-group">
-                                        <button class="details-btn uppercase">Details</button>
-                                        <button class="buy-btn uppercase">Buy Now</button>
+                                <div class="p-8 text-center">
+                                    <h3 class="brand-font text-xl font-bold mb-2 uppercase">${name}</h3>
+                                    <p class="text-amber-700 font-black text-2xl mb-6">${price} TK</p>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button onclick="showDetails('${name}', '${details.replace(/'/g, "\\'")}')" 
+                                                class="details-btn py-4 font-bold text-[9px] uppercase tracking-widest">Details</button>
+                                        <button onclick="openOrderModal('${name}', ${price}, ${delivery})" 
+                                                class="gold-btn py-4 font-bold text-[9px] uppercase tracking-widest shadow-lg">Purchase</button>
                                     </div>
                                 </div>
                             </div>
                         `;
                     }
                 });
-            } catch (err) { console.error(err); }
+            } catch (e) { console.error("Sync Error:", e); }
         }
-        window.onload = fetchProducts;
+
+        // --- Details Pop-up ---
+        function showDetails(name, info) {
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalContent').innerHTML = `
+                <p class="text-gray-600 leading-relaxed italic text-center py-4 border-b border-gray-100">"${info}"</p>
+                <p class="text-[10px] text-center text-gray-400 uppercase tracking-widest mt-4 italic">Zuraan Premium Fragrance</p>
+            `;
+            document.getElementById('confirmOrderBtn').classList.add('hidden'); // Hide purchase button in details mode
+            document.getElementById('orderModal').classList.remove('hidden');
+        }
+
+        // --- Order Pop-up ---
+        function openOrderModal(name, price, delivery) {
+            const total = parseInt(price) + parseInt(delivery);
+            currentOrderData = { name, price, delivery, total };
+            
+            document.getElementById('modalTitle').innerText = "Order Summary";
+            document.getElementById('modalContent').innerHTML = `
+                <div class="flex justify-between py-2 border-b border-gray-50">
+                    <span class="text-xs uppercase tracking-widest text-gray-400">Item</span>
+                    <span class="font-bold text-gray-900">${name}</span>
+                </div>
+                <div class="flex justify-between py-2">
+                    <span class="text-xs uppercase tracking-widest text-gray-400">Price</span>
+                    <span class="font-bold">${price} TK</span>
+                </div>
+                <div class="flex justify-between py-2">
+                    <span class="text-xs uppercase tracking-widest text-gray-400">Delivery</span>
+                    <span class="text-amber-600 font-bold">+ ${delivery} TK</span>
+                </div>
+                <div class="flex justify-between border-t border-gray-900 pt-6 mt-4">
+                    <span class="brand-font text-xl">TOTAL COST</span>
+                    <span class="brand-font text-2xl font-black text-amber-700">${total} TK</span>
+                </div>
+            `;
+            
+            document.getElementById('confirmOrderBtn').classList.remove('hidden');
+            document.getElementById('orderModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').classList.add('hidden');
+        }
+
+        document.getElementById('confirmOrderBtn').onclick = function() {
+            if(!currentOrderData) return;
+            const msg = encodeURIComponent(
+                `ORDER FROM WEBSITE - ZURAAN\n` +
+                `--------------------------\n` +
+                `Product: ${currentOrderData.name}\n` +
+                `Total Payable: ${currentOrderData.total} TK`
+            );
+            window.open(`https://wa.me/${MY_NUMBER}?text=${msg}`, '_blank');
+            closeModal();
+        };
+
+        fetchProducts();
     </script>
 </body>
 </html>
