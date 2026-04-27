@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zuraan | Signature Scents</title>
+    <title>Zuraan | Luxury Fragrance Collection</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -29,7 +29,7 @@
         }
         
         .product-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
             border-color: var(--gold);
         }
@@ -44,6 +44,11 @@
             background: var(--gold);
             transform: scale(1.02);
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -51,11 +56,11 @@
     <nav class="glass-nav fixed w-full z-50 top-0">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <img src="./logo.jpg" alt="Zuraan Logo" class="h-10 w-10 rounded-full object-cover border border-gray-200" onerror="this.src='https://via.placeholder.com/40';">
+                <img src="./logo.png" alt="Zuraan Logo" class="h-10 w-10 rounded-full object-cover border border-gray-200" onerror="this.src='https://via.placeholder.com/40';">
                 <span class="brand-font text-2xl font-bold tracking-widest text-gray-900 uppercase">Zuraan</span>
             </div>
             
-            <div class="hidden md:flex space-x-6 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <div class="hidden md:flex items-center space-x-6 text-[10px] font-bold uppercase tracking-[0.2em]">
                 <a href="#" class="hover:text-amber-600">Home</a>
                 <a href="#shop" class="hover:text-amber-600">Shop</a>
                 <div class="flex items-center space-x-4 border-l pl-6 border-gray-200">
@@ -67,13 +72,15 @@
         </div>
     </nav>
 
-    <header class="relative pt-40 pb-24 overflow-hidden bg-[#fdfcfb]">
+    <header class="relative pt-48 pb-24 overflow-hidden bg-[#fdfcfb]">
         <div class="container mx-auto px-6 text-center">
-            <h1 class="brand-font text-5xl md:text-8xl font-bold mb-6 text-gray-900 tracking-tight leading-none">ZURAAN</h1>
-            <p class="brand-font text-xl md:text-2xl text-amber-700 tracking-[0.3em] mb-10 uppercase italic font-light text-center">Elegance in every drop</p>
+            <img src="./logo.png" alt="Zuraan Symbol" class="w-24 mx-auto mb-8 rounded-full shadow-2xl opacity-90" onerror="this.src='https://via.placeholder.com/100';">
             
-            <div class="flex flex-col items-center gap-6">
-                <a href="#shop" class="gold-btn px-16 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-xl">Explore Shop</a>
+            <h1 class="brand-font hero-title text-6xl md:text-8xl font-bold mb-6 text-gray-900 tracking-tight leading-none">ZURAAN</h1>
+            <p class="brand-font text-xl md:text-2xl text-amber-700 tracking-[0.3em] mb-12 uppercase italic font-light">Elegance in every drop</p>
+            
+            <div class="flex flex-col items-center gap-8">
+                <a href="#shop" class="gold-btn px-16 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-2xl transition-all">Explore Collection</a>
                 
                 <div class="flex justify-center gap-6">
                    <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank" class="bg-blue-600 text-white p-4 rounded-full hover:bg-blue-700 transition shadow-lg w-12 h-12 flex items-center justify-center"><i class="fab fa-facebook-f"></i></a>
@@ -84,21 +91,24 @@
         </div>
     </header>
 
-    <section id="shop" class="py-24 container mx-auto px-6">
-        <div class="flex flex-col items-center mb-16 text-center">
-            <h2 class="brand-font text-3xl font-bold uppercase tracking-widest">Our Collection</h2>
-            <div class="h-1 w-12 bg-amber-600 mt-4"></div>
+    <section id="shop" class="py-24 container mx-auto px-6 bg-white">
+        <div class="flex flex-col items-center mb-20 text-center">
+            <h2 class="brand-font text-4xl font-bold uppercase tracking-widest text-gray-800">Our Shop</h2>
+            <div class="h-1 w-16 bg-amber-600 mt-4 rounded-full"></div>
         </div>
         
         <div id="product-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
-            <p class="text-center col-span-full py-20 text-gray-400 uppercase tracking-widest animate-pulse">Establishing Connection with Zuraan Database...</p>
+            <div class="col-span-full text-center py-20">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-amber-600 mb-4"></div>
+                <p class="text-gray-400 uppercase tracking-[0.2em] text-sm">Authenticating Zuraan Inventory...</p>
+            </div>
         </div>
     </section>
 
-    <footer id="footer" class="bg-zinc-950 text-white py-20">
+    <footer id="footer" class="bg-zinc-950 text-white py-24">
         <div class="container mx-auto px-6 text-center">
-            <img src="./logo.jpg" alt="Zuraan Logo" class="h-20 w-20 rounded-full mx-auto mb-8 grayscale invert border border-white/20 shadow-2xl">
-            <h2 class="brand-font text-4xl font-bold tracking-[0.2em] mb-10 uppercase text-center">ZURAAN</h2>
+            <img src="./logo.png" alt="Zuraan Logo" class="h-20 w-20 rounded-full mx-auto mb-10 border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition duration-500">
+            <h2 class="brand-font text-5xl font-bold tracking-[0.3em] mb-10 uppercase">ZURAAN</h2>
             
             <div class="flex justify-center space-x-12 mb-16">
                 <a href="https://www.facebook.com/share/19vbLoMpfF/" target="_blank" class="text-gray-400 hover:text-blue-500 transition text-3xl"><i class="fab fa-facebook"></i></a>
@@ -107,57 +117,69 @@
                 <a href="https://wa.me/8801XXXXXXXXX" target="_blank" class="text-gray-400 hover:text-green-500 transition text-3xl"><i class="fab fa-whatsapp"></i></a>
             </div>
             
-            <div class="text-gray-500 text-[10px] uppercase tracking-[0.4em] border-t border-white/5 pt-10 text-center">
-                &copy; 2026 Zuraan Luxury Goods | Crafted by Rownak
+            <div class="text-gray-500 text-[10px] uppercase tracking-[0.5em] border-t border-white/5 pt-12">
+                &copy; 2026 Zuraan Luxury Goods | Developed by Rownak
             </div>
         </div>
     </footer>
 
+    <a href="https://wa.me/8801XXXXXXXXX" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition z-50">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
     <script>
-        // --- ADMIN CONFIG ---
-        const WHATSAPP_NUMBER = "8801XXXXXXXXX"; // আপনার হোয়াটসঅ্যাপ নম্বর
+        // --- 🟢 ADMIN CONFIGURATION 🟢 ---
+        // 1. আপনার হোয়াটসঅ্যাপ নম্বর দিন (Country code সহ, যেমন: 8801700000000)
+        const WHATSAPP_NUMBER = "8801XXXXXXXXX"; 
+        
+        // 2. আপনার Google Sheet থেকে পাওয়া CSV লিঙ্কটি এখানে পেস্ট করুন
         const SHEET_CSV_URL = "PASTE_YOUR_GOOGLE_SHEET_CSV_URL_HERE"; 
 
         async function fetchZuraanProducts() {
             try {
                 const response = await fetch(SHEET_CSV_URL);
                 const data = await response.text();
+                // Rows split logic
                 const rows = data.split('\n').slice(1).filter(r => r.trim() !== '');
                 
                 const list = document.getElementById('product-list');
                 list.innerHTML = ''; 
 
                 rows.forEach(row => {
+                    // CSV Column handling (id, name, price, delivery, imgUrl)
                     const col = row.split(',').map(c => c.trim().replace(/^"(.*)"$/, '$1'));
                     if(col.length >= 5) {
                         const [id, name, price, delivery, imgUrl] = col;
-                        const total = (parseInt(price) || 0) + (parseInt(delivery) || 0);
+                        const numericPrice = parseInt(price) || 0;
+                        const numericDelivery = parseInt(delivery) || 0;
+                        const total = numericPrice + numericDelivery;
                         
+                        // WhatsApp Message Formatting
                         const msg = encodeURIComponent(
-                            `Order Request - ZURAAN\\n` +
+                            `New Order Request - ZURAAN\\n` +
                             `--------------------------\\n` +
                             `Product: ${name}\\n` +
-                            `Price: ${price} TK\\n` +
-                            `Delivery: ${delivery} TK\\n` +
-                            `Total: ${total} TK`
+                            `Price: ${numericPrice} TK\\n` +
+                            `Delivery: ${numericDelivery} TK\\n` +
+                            `Total Amount: ${total} TK`
                         );
 
                         list.innerHTML += `
-                            <div class="product-card bg-white rounded-[2.5rem] overflow-hidden">
-                                <div class="relative overflow-hidden group h-96">
-                                    <img src="${imgUrl}" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" alt="${name}">
+                            <div class="product-card bg-white rounded-[3rem] overflow-hidden shadow-sm">
+                                <div class="relative overflow-hidden group h-[28rem]">
+                                    <img src="${imgUrl}" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" alt="${name}" onerror="this.src='https://via.placeholder.com/400x600';">
                                     <div class="absolute inset-0 bg-black/5"></div>
-                                    <div class="absolute top-8 right-8 bg-white/90 backdrop-blur-lg px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase text-gray-800 shadow-xl">Original</div>
+                                    <div class="absolute top-8 left-8 bg-white/90 backdrop-blur-md px-5 py-1 rounded-full text-[9px] font-black tracking-[0.2em] uppercase text-gray-800 shadow-xl">Original</div>
                                 </div>
                                 <div class="p-10 text-center">
-                                    <h3 class="brand-font text-2xl font-bold mb-3 tracking-tight">${name}</h3>
+                                    <h3 class="brand-font text-2xl font-bold mb-4 tracking-tight">${name}</h3>
                                     <div class="flex flex-col items-center mb-8">
-                                        <p class="text-amber-700 font-black text-3xl mb-1">${price} TK</p>
-                                        <p class="text-[9px] text-gray-400 uppercase tracking-[0.2em]">+ ${delivery} TK Delivery Fee</p>
+                                        <p class="text-amber-700 font-black text-4xl mb-1">${numericPrice} TK</p>
+                                        <p class="text-[9px] text-gray-400 uppercase tracking-[0.3em] font-bold">+ ${numericDelivery} TK Delivery Charge</p>
                                     </div>
                                     <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${msg}" target="_blank" 
-                                       class="gold-btn w-full block py-5 rounded-[1.5rem] font-bold text-[10px] uppercase tracking-[0.3em] shadow-2xl">
-                                       Reserve Now
+                                       class="gold-btn w-full block py-5 rounded-[2rem] font-bold text-[10px] uppercase tracking-[0.4em] shadow-2xl">
+                                       Order Now
                                     </a>
                                 </div>
                             </div>
@@ -165,10 +187,15 @@
                     }
                 });
             } catch (e) {
-                document.getElementById('product-list').innerHTML = "<p class='text-center col-span-full py-10 text-gray-400 italic'>Database link missing. Open code to set SHEET_CSV_URL.</p>";
+                document.getElementById('product-list').innerHTML = `
+                    <div class="col-span-full py-10 bg-amber-50 rounded-3xl border border-dashed border-amber-200">
+                        <p class="text-amber-800 font-bold uppercase tracking-widest text-xs">Waiting for Admin to sync Google Sheet Link...</p>
+                    </div>
+                `;
             }
         }
 
+        // Initialize fetching if link is provided
         if(SHEET_CSV_URL.startsWith("http")) {
             fetchZuraanProducts();
         }
